@@ -1,0 +1,59 @@
+Bilgisayar Projesi Notlar 11 MART
+
+//Yasemin Sesin Fiziksel Ozellikleri
+
+ Ses sinyalleri, günümüz ses kayıt ve düzenleme programların da bilgisayar tabanlı çalışmalarda Discrete Fourier Transform (DFT) veya Fast Fourier Transform (FFT) teknolojisi ile çok daha esnek bir çalışma yöntemi sunmaktadır. Ses sinyalleri, FFT ile bilgi kaybı yaşanmadan frekans ve zaman alanı içinde analiz ve sen tez edilerek, görsel verilere dönüştürülür, spektrum ve spektrogram analizi yapan yazılımlar tarafından detaylı bir şekilde takip edilebilir hale gelir. 
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://dergipark.org.tr/tr/download/article-file/2668857
+
+
+
+Temel ses Kavramlari:
+
+Dalga Boyu(Wavelength)
+Bir dalganın iki tepe noktası arasında kalan uzaklığa denir.
+
+Frekans(Frequency)
+Bir dalganın saniyede katettiği dalga boyu sayısının ölçüsüdür. Frekans arttıkça, dalga boyu azalır; dalga boyu arttıkça, frekans azalır.
+
+Genlik(Amplitude)
+Bir dalgada tepenin çukura olan uzaklığının yarısına denir.
+
+Sample Rate
+Bildiğiniz gibi bilgisayarlar bilgiyi ayrık -discrete- parçalar halinde tutarlar. Fakat ses dalgaları süreklidir -continuous-. Bunu bir bilgisayarın görselleri saklamasına benzetebiliriz. Biz etrafımıza baktığımızda cisimlerden gelen renkleri sürekli bir şekilde görürüz ama bilgisayar için bir görsel iki boyutlu bir renkler arrayinden ibarettir.Sampling olayının amacı sürekli bir nokta kümesinden bilgisayarda ifade edilebilecek cinste sonlu -eleman sayısı sonsuz olmayan- bir array oluşturmaktır. Sample rate ise bir saniyelik bir sesten kaç sample alacağımızın ölçüsüdür. Endüstride ses için genelde 44100 ve 48000 sampling rate kullanılır.
+
+Nyquist’in Sampling Teoremi
+Eski bir bilim adamı amca olan Nyquist bir sampling yapılıyorsa Sample Rate o dalga içinde bulunan en büyük frekansın iki katından büyük olmalıdır der. İnsanın duyabileceği en yüksek frekansın 20000 civarında olduğunu göz önünde bulundurursak Nyquist’in teoremine göre bu dalgayı en az 40000 Sample Rate ile ‘sample’lamalıyız.
+Superposition
+Dalgaların üst üste bindirilerek toplanması olayıdır.
+Ses Dalgası
+Ses kaynaklarının atmosferi sıkıştırmasıyla oluşan periyodik dalgalardır. Her periyodik dalga Sinüzoidal Dalgaların toplamı şeklinde ifade edilebilir.
+Sinüzoidal Dalga
+Genel ifadesi A * sin(wt) olan dalgalara denir.
+* 		w = Açısal frekans = 2 * Pi * Frekans
+* 		t = Zaman
+* 		A = Genlik
+
+AKUSTİK ÖZELLİKLERDEN DUYGU ANALİZİ 
+Ses perdesinin özelliklerinden biri temel frekanstir.İnsan sesinden duygu çıkarımında kullanılacak özelliklerin en önemlisi f0 denilen temel frekanstır. Temel frekans, f0, konuşmanın ses perdesi özelliklerinden birisidir. Bilindiği gibi erkeklerin sesi kadınlara göre daha kalındır. Bunu sağlayan özellik temel frekanstır, erkeklerde 80-160 Hz, kadınlarda 150250 Hz, çocuklarda ise 200-400 Hz arasında değişmektedir. Temel frekans dışında konuşma hızı, konuşma kalitesi, enerji gibi özellikler de duygunun tespitinde kullanılabilecek özellikler arasındadır. Bu özelliklerin kullanılmasıyla daha iyi sonuçlar elde edilebilir. Bu çalışmada f0’ın konuşma sinyali boyunca gösterdiği değişim ve sessiz duraklamalar göz önüne alınmış, diğer özelliklerin kullanılması ise ileriki bir çalışma olarak bırakılmıştır. 
+
+
+Kızgın ve mutlu konuşmalarda standart sapma yüksektir ve f0 genel olarak yüksek bir değerde seyreder.
+ 2. Nötür, kızgın ve mutlu konuşmalarda duraklamalar azdır.
+ 3. Üzgün konuşmalarda duraklamalar fazladır ve f0 düşük bir değerde seyreder. 
+
+
+MS Wave ses dosyalarını alıp duygu analizi yapan SoundGarden  uygulaması.
+
+Konuşmacının sesinden kendisini karakterize eden değerlerin çıkartılması işlemine öznitelik çıkartma işlemi adı verilir. Öznitelik çıkartma, bir konuşmacıyı sonradan tanımlayabilmek için ses sinyalinden elde edilmiş küçük bir veri topluluğu oluşturmaya yarayan bir işlemdir. 
+
+
+ Ancak sesten özniteliklerin çıkarılması, ve sınıflandırılmasında farklı yöntemler tercih edilse de performans veri setlerine, duygu durumlarına, dillere, eğitim setinin kullanım yöntemine göre değişebilmektedir.  İncelenen makaleler kapsamında sınıflandırıcı olarak en sık SVM ve öznitelik olarak da MFCC kullanılmıştır. En yüksek tanıma oranı ise TESS veri setinde oto-kodlayıcı ve Alex-net CNN ile sağlanmış ve %98 başarı elde edilmiştir.  
+
+Genel olarak, konuşmadan duygu tanımada (SER) iki öznitelik kategorisi kullanılır: bunlar prozodik öznitelik ve ses yolu sistemi öznitelikleridir. İlk kategori Perde (Pitch), Enerji (Energy) ve Süre (Duration) gibi prozodik verilerden elde edilir. İkinci kategori, Mel Frekansı Kepstrum Katsayısı (MFCC), Doğrusal Öngörülü Kepstrum Katsayıları (LPCC), Formantlar (Formants) ve Ayrık Fourier Dönüşümü (DFT) harmonikleri gibi Kepstral katsayılarını içeren ses yolu ile ilgilidir. 
+Kullanılabilecek kaynaklar:
+
+https://ses-isleme.github.io/notebooks/00_Giris.html Pythonun numpy ve matplotlib kutuphaneleri ile sound analizinin yapılması 
+
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/http://kemik.yildiz.edu.tr/data/File/publications/Speech%20Processing/Insan%20Sesinden%20Duygu%20Cikarma.pdf. konusmadan duygu analizi
+
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://dergipark.org.tr/en/download/article-file/2143516 
