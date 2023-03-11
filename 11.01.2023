@@ -1,6 +1,6 @@
 Bilgisayar Projesi Notlar 11 MART
 
-//Yasemin Sesin Fiziksel Ozellikleri
+#Sesin Fiziksel Ozellikleri, SER Speech Emotion Recognition
 
  Ses sinyalleri, günümüz ses kayıt ve düzenleme programların da bilgisayar tabanlı çalışmalarda Discrete Fourier Transform (DFT) veya Fast Fourier Transform (FFT) teknolojisi ile çok daha esnek bir çalışma yöntemi sunmaktadır. Ses sinyalleri, FFT ile bilgi kaybı yaşanmadan frekans ve zaman alanı içinde analiz ve sen tez edilerek, görsel verilere dönüştürülür, spektrum ve spektrogram analizi yapan yazılımlar tarafından detaylı bir şekilde takip edilebilir hale gelir. 
 chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://dergipark.org.tr/tr/download/article-file/2668857
